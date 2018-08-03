@@ -1,0 +1,11 @@
+# Reference Docker Compose file for container
+version: 3
+services:
+  limnoria:
+    restart: always
+    image: mrdaemon/limnoria:devtest
+    environment:
+      - LIMNORIA_HOME=/opt/limnoria
+      - LIMNORIA_CONFIG=iwakura.conf
+    volumes:
+      - /srv/appvolumes/limnoria:/opt/limnoria
