@@ -4,6 +4,7 @@ services:
   limnoria:
     restart: always
     image: mrdaemon/limnoria:devtest
+    user: limnoria-container
     environment:
       - LIMNORIA_HOME=/opt/limnoria
       - LIMNORIA_CONFIG=iwakura.conf
