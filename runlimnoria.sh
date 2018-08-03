@@ -9,7 +9,7 @@ if [[ ! -w $LIMNORIA_HOME ]] ; then
     >&2 echo "  Did you set permissions on the volume correctly?"
 fi
 
-if [[ ! -w $LIMNORIA_CONFIG ]] ; then
+if [[ ! -w $LIMNORIA_HOME/$LIMNORIA_CONFIG ]] ; then
     >&2 echo "WARNING: Configuration \"$LIMNORIA_CONFIG\" is not writable"
     >&2 echo "  Is your data volume configured correctly?"
     >&2 echo "  Do you need to run 'supybot-create' first?"
