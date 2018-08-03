@@ -1,12 +1,14 @@
 # Reference Docker Compose file for container
-version: 3
+version: "3"
 services:
   limnoria:
     restart: always
-    image: mrdaemon/limnoria:devtest
-    user: limnoria-container
+    image: mrdaemon/limnoria:latest
+    # This should be a host system uid/gid
+    user: 5001:5001
     environment:
       - LIMNORIA_HOME=/opt/limnoria
-      - LIMNORIA_CONFIG=iwakura.conf
+      - LIMNORIA_CONFIG=botname.conf
     volumes:
+      # Permissions on the volume should match the uid/gid above
       - /srv/appvolumes/limnoria:/opt/limnoria
