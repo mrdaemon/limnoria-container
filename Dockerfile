@@ -7,6 +7,13 @@ LABEL maintainer="Alexandre Gauthier <alex@lab.underwares.org>" \
 ENV LIMNORIA_HOME /opt/limnoria
 ENV LIMNORIA_CONFIG "supybot.conf"
 
+# Install System Runtime Dependencies
+RUN apt-get update && apt-get install --no-install-recommends -y \
+      dnsutils \
+      gnupg2 && \
+      apt-get clean && \
+      rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Create directories
 RUN mkdir -p /opt/limnoria
 VOLUME /opt/limnoria
