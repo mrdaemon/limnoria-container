@@ -1,0 +1,3 @@
+[submodule "limnoria"]
+	path = limnoria
+	url = https://github.com/ProgVal/Limnoria.git
