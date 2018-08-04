@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN mkdir -p /opt/limnoria
 VOLUME /opt/limnoria
 
-workdir /usr/src/app
+WORKDIR /usr/src/app
 
 # Fetch requirements from limnoria master, add local requirements, install
 COPY limnoria/requirements.txt .
