@@ -23,16 +23,20 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN mkdir -p /opt/limnoria
 VOLUME /opt/limnoria
 
-# Fetch requirements from limnoria master, add local requirements, install
-ADD https://raw.githubusercontent.com/ProgVal/Limnoria/master/requirements.txt /usr/src/app/requirements.txt
-COPY local-requirements.txt /usr/src/app/local-requirements.txt
-RUN python -m pip install --upgrade pip && \
-      pip install --no-cache-dir --upgrade -r /usr/src/app/requirements.txt && \
-      pip install --no-cache-dir --upgrade -r /usr/src/app/local-requirements.txt
+workdir /usr/src/app
 
-# Install limnoria from pip
-# FIXME: This needs to be reasonably burstable.
-RUN pip install --upgrade limnoria
+# Fetch requirements from limnoria master, add local requirements, install
+COPY limnoria/requirements.txt .
+COPY local-requirements.txt .
+RUN python -m pip install --upgrade pip && \
+      pip install --no-cache-dir --upgrade -r requirements.txt && \
+      pip install --no-cache-dir --upgrade -r local-requirements.txt
+
+# Copy source tree
+COPY limnoria .
+
+# Install from source tree
+RUN python ./setup.py install
 
 # Install startup script and ensure permissions are correct
 COPY runlimnoria.sh /
