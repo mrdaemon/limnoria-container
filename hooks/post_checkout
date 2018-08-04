@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "=> Unfucking submodules"
+git submodule update --init --recursive
