@@ -15,10 +15,6 @@ Why aren't you using the semi-official limnoria container?
 -----------------------------------------------------------
 It's a bit of a mess and I didn't like it. Getting it to build and do what I want was a burden.
 
-Is this seriously just installing it from PyPi?
------------------------------------------------
-Yes, but this is temporary. Awaiting a particular fix from upstream.
-
 Can I run this?
 ----------------
 If you want, but I can't guarantee the absence of russian backdoors, as with every docker image.

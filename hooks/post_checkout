@@ -1,5 +1,5 @@
 #!/bin/bash
-# This is a docker cloud build specific host.
+# This is a docker cloud build specific hook.
 # The system is supposed to checkout submodules on its own, but sometimes doesn't.
 # This post-checkout hook ensures this gets done.
 
